@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qianfeng.phone.mapper.ClearConditionMapper">
+    <resultMap id="baseResultMap2" type="com.qianfeng.phone.dto.ClearCondition">
+        <id property="phoneStatusId" column="phone_status_id" javaType="java.lang.Integer"/>
+        <result property="clearConditionId" column="clear_condition_id" javaType="java.lang.Integer"/>
+        <result property="discountId" column="discount_id" javaType="java.lang.Integer"/>
+        <result property="clearConditionName" column="clear_condition_name" javaType="java.lang.String"/>
+        <result property="clearConditionDescrible" column="clear_condition_describle" javaType="java.lang.String"/>
+
+    </resultMap>
+    <select id="queryClearConditionByStatusId" resultMap="baseResultMap2">
+        select phone_status_id,clear_condition_id,clear_condition_name from clear_condition where phone_status_id= #{phoneStatusId};
+    </select>
+</mapper>

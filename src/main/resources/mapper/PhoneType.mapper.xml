@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qianfeng.phone.mapper.PhoneTypeMapper">
+    <resultMap id="baseResultType1" type="com.qianfeng.phone.dto.PhoneType">
+        <id property="phoneTypeId" column="phone_type_id" javaType="java.lang.Integer"/>
+        <result property="phoneTypeName" column="phone_type_name" javaType="java.lang.String"/>
+        <result property="phoneTypeImg" column="phone_type_img" javaType="java.lang.String"/>
+        <result property="discountId" column="discount_id" javaType="java.lang.Integer"/>
+        <result property="brandId" column="brand_id" javaType="java.lang.Integer"/>
+    </resultMap>
+    <select id="queryTypeByBrandId" resultMap="baseResultType1">
+        select phone_type_name,phone_type_img,phone_type_id from phone_type
+         <where>
+             <if test="brandId != 0">
+                 brand_id=#{brandId};
+             </if>
+         </where>
+
+    </select>
+
+</mapper>
