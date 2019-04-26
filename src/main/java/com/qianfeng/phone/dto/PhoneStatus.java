@@ -1,14 +1,29 @@
 package com.qianfeng.phone.dto;
 
 
+import com.qianfeng.phone.dto.ClearCondition;
+
+import java.util.List;
+
 public class PhoneStatus {
 
   private long phoneStatusId;
   private long clearConditionId;
-  private long orderId;
+  private long pId;
   private long priceId;
   private String phoneStatusName;
+  private long phoneTypeId;
+  private long phonePage;
 
+  private List<ClearCondition> clearCondition;
+
+  public List<ClearCondition> getClearCondition() {
+    return clearCondition;
+  }
+
+  public void setClearCondition(List<ClearCondition> clearCondition) {
+    this.clearCondition = clearCondition;
+  }
 
   public long getPhoneStatusId() {
     return phoneStatusId;
@@ -28,12 +43,12 @@ public class PhoneStatus {
   }
 
 
-  public long getOrderId() {
-    return orderId;
+  public long getPId() {
+    return pId;
   }
 
-  public void setOrderId(long orderId) {
-    this.orderId = orderId;
+  public void setPId(long pId) {
+    this.pId = pId;
   }
 
 
@@ -52,6 +67,24 @@ public class PhoneStatus {
 
   public void setPhoneStatusName(String phoneStatusName) {
     this.phoneStatusName = phoneStatusName;
+  }
+
+
+  public long getPhoneTypeId() {
+    return phoneTypeId;
+  }
+
+  public void setPhoneTypeId(long phoneTypeId) {
+    this.phoneTypeId = phoneTypeId;
+  }
+
+
+  public long getPhonePage() {
+    return phonePage;
+  }
+
+  public void setPhonePage(long phonePage) {
+    this.phonePage = phonePage;
   }
 
 }

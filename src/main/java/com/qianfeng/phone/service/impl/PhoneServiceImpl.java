@@ -1,11 +1,10 @@
 package com.qianfeng.phone.service.impl;
 
-import com.qianfeng.phone.dto.ClearCondition;
 import com.qianfeng.phone.dto.PhoneBrand;
 import com.qianfeng.phone.dto.PhoneStatus;
 import com.qianfeng.phone.dto.PhoneType;
-import com.qianfeng.phone.mapper.ClearConditionMapper;
 import com.qianfeng.phone.mapper.PhoneBrandMapper;
+import com.qianfeng.phone.mapper.PhoneDiscountMapper;
 import com.qianfeng.phone.mapper.PhoneStatusMapper;
 import com.qianfeng.phone.mapper.PhoneTypeMapper;
 import com.qianfeng.phone.service.PhoneService;
@@ -24,7 +23,7 @@ public class PhoneServiceImpl implements PhoneService
     @Autowired
     PhoneStatusMapper phoneStatusMapper;
     @Autowired
-    ClearConditionMapper clearConditionMapper;
+    PhoneDiscountMapper phoneDiscountMapper;
     @Override
     public List<PhoneBrand> queryAllBrand() {
        List<PhoneBrand> brands =  phoneBrandMapper.queryAllBrand();
@@ -36,21 +35,17 @@ public class PhoneServiceImpl implements PhoneService
         List<PhoneType> types = phoneTypeMapper.queryTypeByBrandId(brandId);
         return types;
     }
-    @Override
-    public int querytypecount() {
-        return 0;
-    }
 
     @Override
-    public List<PhoneStatus> queryAllStatus() {
-        List<PhoneStatus> statuses =  phoneStatusMapper.queryAllStatus();
+    public List<PhoneStatus> queryAllStatus(int phoneTypeId) {
+        List<PhoneStatus> statuses =  phoneStatusMapper.queryAllStatus(phoneTypeId);
         return statuses;
     }
 
     @Override
-    public List<ClearCondition> queryClearConditionByStatusId(int phoneStatusId) {
-        List<ClearCondition> clearConditions = clearConditionMapper.queryClearConditionByStatusId(phoneStatusId);
-        return clearConditions;
+    public int queryDiscountByClearId(int clearConditionId) {
+        int discount = phoneDiscountMapper.queryDiscountByClearId(clearConditionId);
+        return discount;
     }
 
 

@@ -1,8 +1,6 @@
 package com.qianfeng.phone.controller;
 
-import com.qianfeng.phone.dto.ClearCondition;
 import com.qianfeng.phone.dto.PhoneBrand;
-import com.qianfeng.phone.dto.PhoneStatus;
 import com.qianfeng.phone.dto.PhoneType;
 import com.qianfeng.phone.service.impl.PhoneServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
