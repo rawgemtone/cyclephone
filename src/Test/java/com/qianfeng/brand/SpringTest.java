@@ -22,10 +22,15 @@ public class SpringTest {
 //        System.out.println(brands);
 //    }
     @Test
-    public void testtype(){
-        List<PhoneType> types = phoneService.queryTypeByBrandId(2);
-        System.out.println(types);
+    public void test(){
+        int i = phoneService.queryTypeMoney(1);
+        System.out.println(i);
     }
+//    @Test
+//    public void testtype(){
+//        List<PhoneType> types = phoneService.queryTypeByBrandId(2);
+//        System.out.println(types);
+//    }
 //    @Test
 //    public void testStatus(){
 //        List<PhoneStatus> statuses = phoneService.queryAllStatus();

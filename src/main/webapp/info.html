@@ -116,9 +116,8 @@
             <dl>
 
                 <dd v-for="status in statusList">
-
                     <template v-if="status.phonePage == 1">
-                    <input type="hidden" name="property[]" v-bind:id="'property_'+status.phoneStatusId" value="0"/>
+                        <input type="text" name="property[]" v-bind:id="'property_'+status.phoneStatusId" value="0"/>
                     <div class="property_title" ><h3>
                         {{status.phoneStatusName}}
                     </h3></div>
@@ -149,7 +148,7 @@
                     <ul>
                         <!--<input type="hidden" name="desc_pid[]" value="944"/>-->
                         <li v-for="clear in status.clearCondition" v-bind:onClick="'item_click(this,'+clear.clearConditionId+')'" :name="'desc_pid_'+status.phoneStatusId">
-                            <input type="hidden" name="desc_id[]" :id="'desc_id_'+clear.clearConditionId" value="0"/>
+                            <input type="text" name="desc_id[]" :id="'desc_id_'+clear.clearConditionId" value="0"/>
                             <div class="pro_div"><span class="property_value"><i>{{clear.clearConditionName}}</i><ins>{{clear.clearConditionDescrible}}</ins></span>
                                 <span class="gou"></span></div>
                         </li>
@@ -170,18 +169,18 @@
             <dl>
                 <template v-for="status in statusList">
                     <template v-if="status.phonePage == 3 || status.phonePage ==4 ">
-                <dd class="" id="pingu_mx_659">
-                    <div class="property_title"><h3>{{status.phoneStatusName}}</h3></div>
+                    <dd class="" id="pingu_mx_659">
+                        <input type="text" name="property[]" v-bind:id="'property_'+status.phoneStatusId" value="110"/>
+                        <div class="property_title"><h3>{{status.phoneStatusName}}</h3></div>
                     <ul>
-                        <input type="hidden" name="property[]" v-bind:id="'property_'+status.phoneStatusId" value="0"/>
-                        <template v-for="clear in status.clearCondition" v-if="status.phonePge == 3">
-
+                        <template v-for="clear in status.clearCondition" v-if="status.phonePage==3">
                             <li class="" v-bind:onClick="'property_click(this,'+status.phoneStatusId+','+clear.clearConditionId+')'" :name="'sx_child_'+status.phoneStatusId">
                                 <div class="pro_div"><span class="property_value"><i>{{clear.clearConditionName}}</i><ins>{{clear.clearConditionDescrible}}</ins></span><span
                                         class="gou"></span></div>
                             </li>
                         </template>
-                            <template v-else>
+                        <!--"status.phoneStatusId==12"-->
+                        <template v-else>
                                 <input type="hidden" name="desc_id[]" :id="'desc_id_'+clear.clearConditionId" value="0"/>
                             <li v-bind:onClick="'item_click(this,'+clear.clearConditionId+')'" :name="'desc_pid_'+status.phoneStatusId">
                                 <div class="pro_div"><span class="property_value"><i>{{clear.clearConditionName}}</i><ins>{{clear.clearConditionDescrible}}</ins></span><span
@@ -200,7 +199,7 @@
             <div id="step3_nav" class="property_nav">
                 <div id="btn_step3_back" class="btn_back">< 返回上一步</div>
                 <div id="btn_step3_next" class="btn_next"
-                     onclick="new_show_price('ajax/new_get_pg_price.html','show_price')">查看价格 >
+                     onclick="new_show_price('http://localhost:8080/cyclephone/discount','show_price')">查看价格 >
                 </div>
             </div>
         </div>

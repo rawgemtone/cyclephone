@@ -41,7 +41,7 @@ function selectcity(url){
     </div>
     <div class="heat_new">
     	<input type="hidden" name="typeid" id="typeid" value="1" />
-      <dl>
+      <dl id="money">
         <dt><span>请选择一种回购方式</span><a href="goods/info/21025.html">重新评估</a></dt>
         <dd class="clearfix heat_on" name="1">
           <div class="heat_yellow"> <img src="../images/new_jian.png" class="new_jian" />
@@ -259,6 +259,18 @@ $(function(){
     _nav('nav_s',2,3);
     show_goods_review('goods/new_review/?gid=21025.html');
 });
+
+</script>
+<script type="text/javascript">
+  new Vue({
+     el:"#money",
+      data:{
+         moneyList:null
+      },
+      mounted(){
+        axios.get()
+      }
+  });
 </script>
 </body>
 </html>

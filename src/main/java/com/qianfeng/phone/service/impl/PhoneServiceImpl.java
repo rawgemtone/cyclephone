@@ -48,5 +48,11 @@ public class PhoneServiceImpl implements PhoneService
         return discount;
     }
 
+    @Override
+    public int queryTypeMoney(int phoneTypeId) {
+        int phonePrice = phoneTypeMapper.queryTypeMoney(phoneTypeId);
+        return phonePrice;
+    }
+
 
 }

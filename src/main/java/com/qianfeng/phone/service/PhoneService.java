@@ -12,5 +12,5 @@ public interface PhoneService {
     List<PhoneType> queryTypeByBrandId(int brandId);
     List<PhoneStatus> queryAllStatus(int phoneTypeId);
     int queryDiscountByClearId(int clearConditionId);
-
+    int queryTypeMoney(int typeId);
 }

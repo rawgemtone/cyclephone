@@ -9,7 +9,33 @@
         <result property="discountMoney" column="discount_money" javaType="java.lang.Integer"/>
         <result property="clearConditionId" column="clear_condition_id" javaType="java.lang.Integer"/>
     </resultMap>
+    <resultMap id="BaseResultMap2" type="com.qianfeng.phone.dto.ClearCondition">
+        <id property="phoneStatusId" column="phone_status_id" javaType="java.lang.Integer"/>
+        <result property="clearConditionId" column="clear_condition_id" javaType="java.lang.Integer"/>
+        <result property="discountId" column="discount_id" javaType="java.lang.Integer"/>
+        <result property="clearConditionName" column="clear_condition_name" javaType="java.lang.String"/>
+        <result property="clearConditionDescrible" column="clear_condition_describle" javaType="java.lang.String"/>
+    </resultMap>
+    <resultMap id="BaseResultMap3" type="com.qianfeng.phone.dto.PhoneType">
+        <id property="phoneTypeId" column="phone_type_id" javaType="java.lang.Integer"/>
+        <result property="phoneTypeName" column="phone_type_name" javaType="java.lang.String"/>
+        <result property="phoneTypeImg" column="phone_type_img" javaType="java.lang.String"/>
+        <result property="discountId" column="discount_id" javaType="java.lang.Integer"/>
+        <result property="brandId" column="brand_id" javaType="java.lang.Integer"/>
+        <result property="phonePrice" column="phone_price" javaType="java.lang.Integer"/>
+    </resultMap>
+    <select id="queryTypePrice" resultType="java.lang.Integer">
+       select phone_price from phone_type where phone_type_id=#{phoneTypeId}
+    </select>
     <select id="queryDiscountByClearId" resultMap="BaseResultMapper">
-        select discount_money from discount where clear_condition_id = #{clearConditionId}
+        select pt.phone_type_id '手机类型id',cc.clear_condition_id '损伤详情id',d.discount_money '损伤金额'
+from discount d left join clear_condition cc on cc.clear_condition_id = d.clear_condition_id
+left join phone_type pt on pt.phone_type_id = d.phone_type_id
+where cc.clear_condition_id in(
+  <foreach collection="clearConditionids" item="id" separator=",">
+    #{id}
+  </foreach>
+
+) and pt.phone_type_id=#{phoneTypeId}
     </select>
 </mapper>

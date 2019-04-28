@@ -11,4 +11,5 @@ public interface PhoneTypeMapper {
     List<PhoneType> queryTypeByBrandId(@Param("brandId") int brandId);
     List<PhoneType> queryAllType();
     int queryTypeCount();
+    int queryTypeMoney(int phoneTypeId);
 }

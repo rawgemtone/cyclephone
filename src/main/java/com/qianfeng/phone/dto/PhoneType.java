@@ -8,7 +8,7 @@ public class PhoneType {
   private long brandId;
   private long discountId;
   private String phoneTypeImg;
-
+  private int phonePrice;
   @Override
   public String toString() {
     return "PhoneType{" +
@@ -18,6 +18,14 @@ public class PhoneType {
             ", discountId=" + discountId +
             ", phoneTypeImg='" + phoneTypeImg + '\'' +
             '}';
+  }
+
+  public int getPhonePrice() {
+    return phonePrice;
+  }
+
+  public void setPhonePrice(int phonePrice) {
+    this.phonePrice = phonePrice;
   }
 
   public String getPhoneTypeName() {

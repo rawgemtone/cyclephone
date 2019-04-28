@@ -107,10 +107,10 @@ function new_show_price(url,act,func,elem_id,ifhuanxin){
 		property_ids	+=	psuffix+$(this).val();
 		psuffix			=	',';
 	})
-	if( ! property_flag){
-		alert("请选择评估参数");
-		return false;
-	}
+	// if( ! property_flag){
+	// 	alert("请选择评估参数");
+	// 	return false;
+	// }
 	var desc_flag	=	true;
 	$("input[name='desc_id[]']").each(function(){
 		if($(this).val()==0){
@@ -120,10 +120,10 @@ function new_show_price(url,act,func,elem_id,ifhuanxin){
 		desc_ids	+=	dsuffix+$(this).val();
 		dsuffix		=	',';
 	})
-	if( ! desc_flag){
-		alert("请选择评估参数");
-		return false;
-	}
+	// if( ! desc_flag){
+	// 	alert("请选择评估参数");
+	// 	return false;
+	// }
 
 	if(desc_ids.length	==	0){
 		alert("无评估参数");

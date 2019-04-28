@@ -9,6 +9,7 @@
         <result property="phoneTypeImg" column="phone_type_img" javaType="java.lang.String"/>
         <result property="discountId" column="discount_id" javaType="java.lang.Integer"/>
         <result property="brandId" column="brand_id" javaType="java.lang.Integer"/>
+        <result property="phonePrice" column="phone_price" javaType="java.lang.Integer"/>
     </resultMap>
     <select id="queryTypeByBrandId" resultMap="baseResultType1">
         select phone_type_name,phone_type_img,phone_type_id from phone_type
@@ -18,6 +19,9 @@
              </if>
          </where>
 
+    </select>
+    <select id="queryTypeMoney" resultType="java.lang.Integer">
+        select phone_price from phone_type where phone_type_id=#{phoneTypeId}
     </select>
 
 </mapper>
